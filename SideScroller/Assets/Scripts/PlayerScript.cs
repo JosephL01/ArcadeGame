@@ -6,7 +6,7 @@ public class PlayerScript : MonoBehaviour
 {
     public Rigidbody2D playerRigidbody;
     public float playerSpaceInput;
-    public PlayerScore score;
+    //public PlayerScore score;
     public bool Continue = true;
     public EnemySpawner enemySpawner;
 
@@ -20,7 +20,8 @@ public class PlayerScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        score.gameover();
+        PlayerScore.instance.gameover();
+        //score.gameover();
         Continue = false;
         Destroy(gameObject);
     }

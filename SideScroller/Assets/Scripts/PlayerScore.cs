@@ -7,10 +7,17 @@ using UnityEngine.SceneManagement;
 
 public class PlayerScore : MonoBehaviour
 {
+    public static PlayerScore instance;
     public int playerScore;
     public TMP_Text scoreText;
     public GameObject gameOverScreen;
-
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
     public void addScore(int scoreAdded)
     {
         playerScore = playerScore + scoreAdded;
