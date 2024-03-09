@@ -20,7 +20,7 @@ public class EnemyScript : MonoBehaviour
 
         if(transform.position.x < deletionArea)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

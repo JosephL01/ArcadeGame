@@ -8,12 +8,7 @@ public class PlayerScript : MonoBehaviour
     public float playerSpaceInput;
     public PlayerScore score;
     public bool Continue = true;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        score = GameObject.FindGameObjectWithTag("Score").GetComponent<PlayerScore>();
-    }
+    public EnemySpawner enemySpawner;
 
     // Update is called once per frame
     void Update()
@@ -28,5 +23,13 @@ public class PlayerScript : MonoBehaviour
         score.gameover();
         Continue = false;
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Reset"))
+        {
+            enemySpawner.SpawnEnemy();
+        }
     }
 }
